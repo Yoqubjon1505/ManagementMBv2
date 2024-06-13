@@ -15,17 +15,17 @@ namespace ManagementMB.Controllers
         }
 
 
-        [HttpPost("GetByData")]
-        public IActionResult GetByData([FromQuery] DateTime fromDate, [FromQuery] DateTime toDate)
+        [HttpPost("GetByDate")]
+        public IActionResult GetByDate([FromQuery] DateTime fromDate, [FromQuery] DateTime toDate)
         {
-           var _item = _cashFlowService.GetByDate(fromDate, toDate);
-            if (_item != null)
+            var item = _cashFlowService.GetByDate(fromDate, toDate);
+            if (item != null)
             {
-                return Ok(_item);
+                return Ok(item);
             }
             return NotFound();
-
         }
+
 
     }
 }
